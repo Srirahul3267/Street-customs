@@ -7,6 +7,38 @@
 <meta name="author" content=""/>
 <link rel="stylesheet" type="text/css" href="style.css" media="screen"/>
 <title>Contact Us</title>
+<script type="text/javascript">
+function validateFields(){
+	var name = document.getElementById('name').value;
+	var email = document.getElementById('email').value;
+	var message = document.getElementById('message').value;
+
+	var alertMessage = "";
+	var check = true;
+
+	if(name.trim().length == 0){
+		alertMessage += "Please fill the Name \n";
+		check = false;
+	}
+	if(email.trim().length == 0){
+		alertMessage += "Please fill the Email \n";
+		check = false;
+	}
+	if(message.trim().length == 0){
+		alertMessage += "Please fill the Message \n";
+		check = false;
+	}
+
+	if(!check){
+  alert(alertMessage);
+ }
+    else{
+        alertMessage += "email sent \n";
+        alert(alertMessage);
+        }
+ return check;
+}
+</script>
 </head>
 <body>
 <div id="wrapper">
@@ -38,14 +70,5 @@
           <br />
           <br />
         </div>
-        <input id="submit_button" type="submit" value="Send email" />
-      </div>
-    </div>
-    <div class="footer">
-      <div class="left"> Copyright &copy; 2016 Street Coustom </div>
-      <div class="clearer"></div>
-    </div>
-  </div>
-</div>
-</body>
-</html>
+        <input id="submit_button" type="submit" onclick="return validateFields()" value="Send email" />
+      
